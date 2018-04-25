@@ -25,7 +25,7 @@ function init() {
 	geometry = normalizeSphere(geometry);
 
 	geometry = generateTerr(geometry);
-	geometry = generatePerlinVertexColors(geometry);
+	geometry = generateSimplexVertexColors(geometry);
 	geometry.computeVertexNormals();
 	let material = new THREE.MeshPhongMaterial( {vertexColors: THREE.VertexColors} );
 	/*let material2 = new THREE.MeshBasicMaterial( {color: 0xffffff} );
@@ -172,7 +172,7 @@ function generateEarthCubemap() {
 	return [side3, side2, top, bottom, side1, side4];
 }
 
-function generatePerlinVertexColors(vertexGeometry) {
+function generateSimplexVertexColors(vertexGeometry) {
 	let colorsArr = [];
 	for(let i = 0; i < vertexGeometry.attributes.position.array.length; i=i+3) {
 		let ox = vertexGeometry.attributes.position.array[i];
