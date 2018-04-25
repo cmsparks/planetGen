@@ -38,7 +38,7 @@ function init() {
 	let waterGeo = new THREE.SphereBufferGeometry(1, 24, 24)
 	let waterMat = new THREE.MeshPhongMaterial({color: 0x0000ff})
 	let water = new THREE.Mesh( waterGeo, waterMat);
-	water.scale.set(99,99,99)
+	water.scale.set(100,100,100)
 	scene.add(water)
 
 	var wireframe = new THREE.WireframeGeometry( geometry );
@@ -110,10 +110,10 @@ function generateVertexColors(vertexGeometry) {
 function generateTerr(sphereGeometry) {
 	sphereGeometry.computeVertexNormals()
 	for(let i = 0; i < sphereGeometry.attributes.position.array.length; i=i+3) {
-		let nout = noiseGen(sphereGeometry.attributes.position.array[i],sphereGeometry.attributes.position.array[i+1],sphereGeometry.attributes.position.array[i+2], 3, 6, .75);
-		sphereGeometry.attributes.position.array[i] += sphereGeometry.attributes.normal.array[i]*(nout/40);
-		sphereGeometry.attributes.position.array[i+1] += sphereGeometry.attributes.normal.array[i+1]*(nout/40);
-		sphereGeometry.attributes.position.array[i+2] += sphereGeometry.attributes.normal.array[i+2]*(nout/40);
+		let nout = noiseGen(sphereGeometry.attributes.position.array[i],sphereGeometry.attributes.position.array[i+1],sphereGeometry.attributes.position.array[i+2], 4, 6, .75);
+		sphereGeometry.attributes.position.array[i] += sphereGeometry.attributes.normal.array[i]*(nout/100);
+		sphereGeometry.attributes.position.array[i+1] += sphereGeometry.attributes.normal.array[i+1]*(nout/100);
+		sphereGeometry.attributes.position.array[i+2] += sphereGeometry.attributes.normal.array[i+2]*(nout/100);
 		//console.log(sphereGeometry.attributes.position.array[i+2])
 		//console.log(sphereGeometry.attributes.normal.array[i+2])
 	}
@@ -178,7 +178,7 @@ function generatePerlinVertexColors(vertexGeometry) {
 		let ox = vertexGeometry.attributes.position.array[i];
 		let oy = vertexGeometry.attributes.position.array[i+1];
 		let oz = vertexGeometry.attributes.position.array[i+2];
-		let nout = noiseGen(ox,oy,oz, 3, 6, .75); //noise.simplex3(ox,oy,oz)
+		let nout = noiseGen(ox,oy,oz, 4, 6, .75); //noise.simplex3(ox,oy,oz)
 		nout = (nout+2)/4
 		if(nout <0.5) {
 			colorsArr.push(255/255);
