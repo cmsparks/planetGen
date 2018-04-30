@@ -231,3 +231,7 @@ function noiseGen(ix,iy,iz,scale,octaves,persistence) {
 	nout /= maxAmp;
 	return nout;
 }
+
+function generatePerlinTexture() {
+	
+}
