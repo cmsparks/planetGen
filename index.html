@@ -3,12 +3,24 @@
 	<head>
 		<meta charset=utf-8>
 		<style>
+		body, html {margin:0; padding: 0;}
+		p {
+			position: absolute;
+		text-align: center;
+		color: white;
+		font-family: helvetica;
+		width: 40vw;
+		margin: 0 30vw;
+		}
 		</style>
 	</head>
 	<body>
+		<p>Press Escape to enable/disable movement (View may shift when pressing escape), WASD to move.</p>
 		<script src="utils/three.js"></script>
 		<script src="utils/FirstPersonControls.js"></script>
 		<script src="utils/perlin.js"></script>
+		<script type="text/javascript" src="utils/dat.gui.js"></script>
+		<script type="text/javascript" src="utils/Lut.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>
